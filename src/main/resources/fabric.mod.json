@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "pathunderfencegates",
+  "version": "${version}",
+  "name": "Path Under Fence Gates",
+  "description": "Allows you to make dirt paths under fence gates",
+  "authors": [],
+  "contact": {},
+  "license": "GPLv3s",
+  "icon": "assets/pathunderfences/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.steveplays28.pathunderfencegates.PathUnderFenceGates"
+    ]
+  },
+  "mixins": [
+    "pathunderfencegates.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": "1.18.2"
+  }
+}
