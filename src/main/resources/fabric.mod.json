@@ -3,11 +3,23 @@
   "id": "pathunderfencegates",
   "version": "${version}",
   "name": "Path Under Fence Gates",
-  "description": "Allows you to make dirt paths under fence gates",
-  "authors": [],
-  "contact": {},
-  "license": "GPLv3s",
-  "icon": "assets/pathunderfences/icon.png",
+  "description": "Allows you to make dirt paths under fence gates.",
+  "authors": [
+    "Steveplays28"
+  ],
+  "contact": {
+    "sources": "https://github.com/Steveplays28/pathunderfencegates",
+    "issues": "https://github.com/Steveplays28/pathunderfencegates/issues"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/KbWxgGg"
+      }
+    }
+  },
+  "license": "GPLv3",
+  "icon": "assets/pathunderfencegates/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

@@ -28,7 +28,7 @@ public class ShovelItemMixin {
 
     /**
      * @author Steveplays28
-     * @reason I have to modify an if statement in this function so overwriting makes more sense than injecting
+     * @reason I have to modify an if statement in this function so overwriting seems like a better option than injecting
      */
     @Overwrite
     public ActionResult useOnBlock(ItemUsageContext context) {
