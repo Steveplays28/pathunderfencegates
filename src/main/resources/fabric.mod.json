@@ -18,19 +18,16 @@
       }
     }
   },
-  "license": "GPLv3",
+  "license": "LGPLv2.1",
   "icon": "assets/pathunderfencegates/icon.png",
   "environment": "*",
-  "entrypoints": {
-    "main": [
-      "io.github.steveplays28.pathunderfencegates.PathUnderFenceGates"
-    ]
-  },
   "mixins": [
     "pathunderfencegates.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.8",
-    "minecraft": "1.19"
+    "fabricloader": ">=0.10.7",
+    "minecraft": [
+      "1.18.x"
+    ]
   }
 }
