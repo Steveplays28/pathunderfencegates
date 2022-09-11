@@ -1,5 +1,5 @@
 # Path under fence gates  
-1.18.2 Fabric Minecraft mod, does NOT require Fabric API.
+1.19.x Minecraft Fabric mod, does NOT require Fabric API.
 
 ## FAQ  
 - \[Q]: Will you be backporting this to lower Minecraft versions?
