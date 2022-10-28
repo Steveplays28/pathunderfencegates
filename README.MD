@@ -4,7 +4,7 @@
 
 Allows you to make dirt paths under fence gates.
 
-![Path under fence gates screenshot](docs/media/complementary_night.png)
+![Path under fence gates screenshot](docs/media/complementary_day.png)
 
 ## Dependencies
 
