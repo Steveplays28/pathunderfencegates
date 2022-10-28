@@ -1,32 +1,37 @@
-<h1 align="center">
-<img src="https://github.com/Steveplays28/pathunderfencegates/blob/main/src/main/resources/assets/pathunderfencegates/icon.png" width="256px" align="center">
+![Path under fence gates icon](docs/media/icon_128x128.png)
 
-Path under fence gates
+# Path under fence gates
 
-[![GitHub](https://img.shields.io/github/license/Steveplays28/pathunderfencegates)](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE)
-![GitHub](https://img.shields.io/github/repo-size/Steveplays28/pathunderfencegates)
-[![GitHub](https://img.shields.io/github/forks/Steveplays28/pathunderfencegates)](https://github.com/Steveplays28/pathunderfencegates/network/members)
-[![GitHub](https://img.shields.io/github/issues/Steveplays28/pathunderfencegates)](https://github.com/Steveplays28/pathunderfencegates/issues)
-[![GitHub](https://img.shields.io/github/issues-pr/Steveplays28/pathunderfencegates)](https://github.com/Steveplays28/pathunderfencegates/pulls)
+Allows you to make dirt paths under fence gates.
 
-![GitHub](https://img.shields.io/badge/environment-both-4caf50?style=flat-square)
-![GitHub](https://img.shields.io/badge/mod%20loader-fabric-d64541?style=flat-square)
-[![Discord](https://img.shields.io/discord/746681304111906867?label=chat%20on%20Discord%20%7C%20Steve%27s%20underwater%20paradise)](https://discord.gg/KbWxgGg)
-</h1>
+![Path under fence gates screenshot](docs/media/complementary_night.png)
 
-<p align="center">
-Minecraft Fabric mod that allows you to make dirt paths under fence gates. 
-</p>
+## Dependencies
 
-## Dependencies  
-- None! (does not require Fabric API)
+- None (does not require Fabric/Quilt API)!
 
-## FAQ  
-- \[Q]: Will you be backporting this to lower Minecraft versions?
-- \[A]: No.
+## Download
 
-- \[Q]: Forge pls?
-- \[A]: Also no.
+[![github](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/available/github_vector.svg)](https://github.com/Steveplays28/pathunderfencegates)
+[![modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/pathunderfencegates)
+[![curseforge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/pathunderfencegates)
 
-## License  
+![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/compact/supported/fabric_vector.svg)
+![quilt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/compact/supported/quilt_vector.svg)
+
+Supports Minecraft versions 1.18-1.19.2.  
+Made for the Fabric and Quilt modloaders.
+
+## FAQ
+
+![forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/unsupported/forge_vector.svg)
+
+- Q: Will you be backporting this to lower Minecraft versions?
+- A: No.
+
+- Q: Forge pls?
+- A: Also no.
+
+## License
+
 This project is licensed under LGPLv2, see [LICENSE](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE).
