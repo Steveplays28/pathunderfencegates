@@ -33,6 +33,9 @@ A: No.
 - Q: Forge pls?  
 A: Also no.
 
+- Q: Does only the server need this mod or does the client need it too?  
+A: Both the client and the server need this mod.
+
 ## License
 
 This project is licensed under LGPLv2, see [LICENSE](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE).
