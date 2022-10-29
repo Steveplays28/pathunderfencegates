@@ -26,11 +26,11 @@ Made for the Fabric and Quilt modloaders.
 
 ![forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/unsupported/forge_vector.svg)
 
-- Q: Will you be backporting this to lower Minecraft versions?
-- A: No.
+- Q: Will you be backporting this to lower Minecraft versions?  
+A: No.
 
-- Q: Forge pls?
-- A: Also no.
+- Q: Forge pls?  
+A: Also no.
 
 ## License
 
