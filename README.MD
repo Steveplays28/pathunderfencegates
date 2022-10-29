@@ -38,4 +38,4 @@ A: Both the client and the server need this mod.
 
 ## License
 
-This project is licensed under LGPLv2, see [LICENSE](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE).
+This project is licensed under LGPLv2.1, see [LICENSE](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE).
