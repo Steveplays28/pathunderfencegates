@@ -1,8 +1,6 @@
 package io.github.steveplays28.pathunderfencegates.mixin;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CampfireBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ShovelItem;
@@ -25,6 +23,8 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Map;
 
+import static io.github.steveplays28.pathunderfencegates.util.BlockStateUtil.BlockAllowedAboveDirtPathBlock;
+
 @Mixin(value = ShovelItem.class, priority = 2000)
 public class ShovelItemMixin {
 	@Final
@@ -41,8 +41,9 @@ public class ShovelItemMixin {
 			PlayerEntity playerEntity = context.getPlayer();
 			BlockState blockState2 = PATH_STATES.get(blockState.getBlock());
 			BlockState blockState3 = null;
+			BlockState blockStateBlockUp = world.getBlockState(blockPos.up());
 
-			if (blockState2 != null && (world.getBlockState(blockPos.up()).isAir() || world.getBlockState(blockPos.up()).isIn(BlockTags.FENCE_GATES))) {
+			if (blockState2 != null && BlockAllowedAboveDirtPathBlock(blockStateBlockUp)) {
 				world.playSound(playerEntity, blockPos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0f, 1.0f);
 				blockState3 = blockState2;
 
