@@ -3,7 +3,7 @@
 # Path under fence gates
 
 Allows you to make dirt paths under fence gates, and more!  
-This mod fixes [MC-84731](https://bugs.mojang.com/browse/MC-84731), which includes (besides fence gates) wall signs, trapdoors, slabs, glass panes, and bells.
+This mod fixes [MC-84731](https://bugs.mojang.com/browse/MC-84731) (except farmland), which includes (besides fence gates) wall signs, trapdoors, slabs, glass panes, and bells.
 
 ![Path under fence gates screenshot](docs/media/complementary_day.png)
 ![Path under fence gates all fixes screenshot (sign text: "Very fancy dirt paths aren't they?")](docs/media/all_fixes.png)
