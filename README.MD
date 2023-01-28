@@ -19,7 +19,7 @@ Allows you to make dirt paths under fence gates.
 ![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/compact/supported/fabric_vector.svg)
 ![quilt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/compact/supported/quilt_vector.svg)
 
-Supports Minecraft versions 1.18-1.19.2.  
+Supports Minecraft versions 1.19-1.19.3.  
 Made for the Fabric and Quilt modloaders.  
 Server and client side.
 
