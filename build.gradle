@@ -1,4 +1,5 @@
 //file:noinspection GroovyAccessibility
+//file:noinspection GroovyAssignabilityCheck
 
 plugins {
     id 'fabric-loom' version '0.12-SNAPSHOT'
