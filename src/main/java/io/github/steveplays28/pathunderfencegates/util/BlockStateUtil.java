@@ -2,15 +2,24 @@ package io.github.steveplays28.pathunderfencegates.util;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
+import org.jetbrains.annotations.NotNull;
+
+#if MC_1_19
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.shape.VoxelShape;
+#else
+import net.minecraft.registry.tag.BlockTags;
+#endif
 
 import static net.minecraft.block.SlabBlock.TYPE;
 
 public class BlockStateUtil {
-	public static boolean BlockAllowedAboveDirtPathBlock(BlockState blockState) {
+	@SuppressWarnings("deprecation")
+	public static boolean BlockAllowedAboveDirtPathBlock(@NotNull BlockState blockState) {
 		Block block = blockState.getBlock();
 
-		return !blockState.getMaterial().isSolid() || blockState.isAir() || blockState.isIn(BlockTags.FENCE_GATES) || blockState.isIn(BlockTags.TRAPDOORS) || block instanceof BellBlock || block instanceof WallSignBlock || block instanceof PaneBlock || (block instanceof SlabBlock && blockState.get(TYPE).equals(SlabType.TOP));
+		return #if MC_1_19 !blockState.getMaterial().isSolid() #else !blockState.isSolid() #endif || blockState.isAir() || blockState.isIn(
+				BlockTags.FENCE_GATES) || blockState.isIn(
+				BlockTags.TRAPDOORS) || block instanceof BellBlock || block instanceof WallSignBlock || block instanceof PaneBlock || (block instanceof SlabBlock && blockState.get(
+				TYPE).equals(SlabType.TOP));
 	}
 }

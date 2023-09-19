@@ -1,3 +1,5 @@
+//file:noinspection GroovyAccessibility
+
 plugins {
     id 'fabric-loom' version '0.12-SNAPSHOT'
     id 'maven-publish'
@@ -20,6 +22,12 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+
+    jcenter()
+    maven {
+        name = "SonaType"
+        url = "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
 }
 
 dependencies {
@@ -27,6 +35,11 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Manifold
+    implementation 'systems.manifold:manifold-rt:2023.1.26'
+    annotationProcessor group: 'systems.manifold', name: 'manifold', version: '2023.1.26'
+    annotationProcessor 'systems.manifold:manifold-preprocessor:2023.1.26'
 
     // Fabric API. This is technically optional, but you probably want it anyway.
 //    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
@@ -53,6 +66,9 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
+targetCompatibility = targetJavaVersion
+sourceCompatibility = targetJavaVersion
+
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     if (JavaVersion.current() < javaVersion) {
@@ -63,6 +79,23 @@ java {
     // if it is present.
     // If you remove this line, sources will not be generated.
     withSourcesJar()
+
+    // Manifold
+    if (JavaVersion.current() != JavaVersion.VERSION_1_8 && sourceSets.main.allJava.files.any { it.name == "module-info.java" }) {
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                // if you DO define a module-info.java file:
+                options.compilerArgs += ['-Xplugin:Manifold', '--module-path', it.classpath.asPath]
+            }
+        }
+    } else {
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                // If you DO NOT define a module-info.java file:
+                options.compilerArgs += ['-Xplugin:Manifold']
+            }
+        }
+    }
 }
 
 jar {
