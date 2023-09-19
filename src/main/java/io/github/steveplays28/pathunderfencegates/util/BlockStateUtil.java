@@ -3,7 +3,6 @@ package io.github.steveplays28.pathunderfencegates.util;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.shape.VoxelShape;
 
 import static net.minecraft.block.SlabBlock.TYPE;
 

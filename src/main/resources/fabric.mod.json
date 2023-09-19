@@ -19,7 +19,7 @@
       }
     }
   },
-  "license": "LGPLv2.1",
+  "license": "LGPLv3",
   "icon": "assets/pathunderfencegates/icon.png",
   "environment": "*",
   "mixins": [
@@ -28,7 +28,7 @@
   "depends": {
     "fabricloader": ">=0.14.10",
     "minecraft": [
-      "1.19.x"
+      "1.20.x"
     ]
   }
 }
