@@ -5,7 +5,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = "${project.mod_version}+mc${project.supported_minecraft_version}"
 group = project.maven_group
 
 repositories {
@@ -84,14 +84,14 @@ java {
     if (JavaVersion.current() != JavaVersion.VERSION_1_8 && sourceSets.main.allJava.files.any { it.name == "module-info.java" }) {
         tasks.withType(JavaCompile).tap {
             configureEach {
-                // if you DO define a module-info.java file:
+                // If you DO define a module-info.java file
                 options.compilerArgs += ['-Xplugin:Manifold', '--module-path', it.classpath.asPath]
             }
         }
     } else {
         tasks.withType(JavaCompile).tap {
             configureEach {
-                // If you DO NOT define a module-info.java file:
+                // If you DO NOT define a module-info.java file
                 options.compilerArgs += ['-Xplugin:Manifold']
             }
         }
