@@ -21,7 +21,7 @@ This mod fixes [MC-84731](https://bugs.mojang.com/browse/MC-84731) (except farml
 ![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/compact/supported/fabric_vector.svg)
 ![quilt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/compact/supported/quilt_vector.svg)
 
-Supports Minecraft versions 1.19-1.19.3.  
+See the version info in the filename for the supported Minecraft versions.  
 Made for the Fabric and Quilt modloaders.  
 Server and client side.
 
@@ -40,4 +40,4 @@ A: Both the client and the server need this mod.
 
 ## License
 
-This project is licensed under LGPLv2.1, see [LICENSE](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE).
+This project is licensed under LGPLv3, see [LICENSE](https://github.com/Steveplays28/pathunderfencegates/blob/main/LICENSE).
