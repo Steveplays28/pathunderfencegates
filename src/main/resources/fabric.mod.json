@@ -17,6 +17,14 @@
       "links": {
         "modmenu.discord": "https://discord.gg/KbWxgGg"
       }
+    },
+    "mc-publish": {
+      "loaders": [
+        "fabric",
+        "quilt"
+      ],
+      "curseforge": 638805,
+      "modrinth": "MD6yYHfJ"
     }
   },
   "license": "LGPLv3",
