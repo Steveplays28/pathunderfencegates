@@ -10,6 +10,8 @@ public class BlockStateUtil {
 	public static boolean isBlockAllowedAboveDirtPathBlock(BlockState blockState) {
 		Block block = blockState.getBlock();
 
-		return !blockState.getMaterial().isSolid() || blockState.isAir() || blockState.isIn(BlockTags.FENCE_GATES) || blockState.isIn(BlockTags.TRAPDOORS) || block instanceof BellBlock || block instanceof WallSignBlock || block instanceof PaneBlock || (block instanceof SlabBlock && blockState.get(TYPE).equals(SlabType.TOP)) || (block instanceof LanternBlock && blockState.get(LanternBlock.HANGING));
+		return !blockState.getMaterial().isSolid() || blockState.isAir() || blockState.isIn(BlockTags.FENCE_GATES) || blockState.isIn(
+				BlockTags.TRAPDOORS) || block instanceof BellBlock || block instanceof WallSignBlock || block instanceof PaneBlock || (block instanceof SlabBlock && blockState.get(
+				TYPE).equals(SlabType.TOP)) || (block instanceof LanternBlock && blockState.get(LanternBlock.HANGING));
 	}
 }
