@@ -9,6 +9,103 @@ plugins {
 version = "${project.mod_version}+mc${project.supported_minecraft_version}"
 group = project.maven_group
 
+def loadProperties() {
+    def versionPropertiesFolder = project.version_properties_folder
+    def defaultMinecraftVersion = project.default_minecraft_version
+    def minecraftVersions = fileTree(versionPropertiesFolder).files.name
+    def minecraftVersion = ""
+
+    for (int i = 0; i < minecraftVersions.size(); i++) {
+        // Remove the ".properties" at the end of the filename to get the versions
+        minecraftVersions[i] = minecraftVersions[i].replaceAll("\\.properties", "")
+    }
+
+    // Sort the version list so the list goes from oldest to newest
+    minecraftVersions.sort()
+
+    int minecraftVersionIndex = -1
+    println "Available Minecraft versions: ${minecraftVersions}"
+
+    if (hasProperty("minecraft_version_properties")) {
+        minecraftVersion = minecraft_version_properties
+        minecraftVersionIndex = minecraftVersions.indexOf(minecraftVersion)
+    }
+
+    if (minecraftVersionIndex == -1) {
+        println "minecraft_version_properties is unset or invalid! Defaulting to ${defaultMinecraftVersion}."
+        println "Tip: use -Pminecraft_version_properties=\"${defaultMinecraftVersion}\" as a command line argument to set minecraft_version_properties."
+
+        minecraftVersion = defaultMinecraftVersion
+        minecraftVersionIndex = minecraftVersions.indexOf(defaultMinecraftVersion)
+
+        assert minecraftVersionIndex != -1
+    }
+
+    println "Loading ${versionPropertiesFolder}/${minecraftVersion}.properties"
+    def props = new Properties()
+    props.load(new FileInputStream("${rootDir}/${versionPropertiesFolder}/${minecraftVersion}.properties"))
+
+    props.each { prop -> gradle.ext.set(prop.key, prop.value) }
+    gradle.ext.minecraft_versions = minecraftVersions
+}
+
+/**
+ * Creates the list of preprocessors to use.
+ *
+ * @param minecraftVersions Array of all Minecraft versions.
+ * @param minecraftVersionIndex Array index of the currently active Minecraft version.
+ */
+def writeManifoldPreprocessorDefinesToBuildProperties() {
+    def versionPropertiesFolder = project.version_properties_folder
+    def minecraftVersions = fileTree(versionPropertiesFolder).files.name
+
+    for (int i = 0; i < minecraftVersions.size(); i++) {
+        // Remove the ".properties" at the end of the filename to get the versions
+        minecraftVersions[i] = minecraftVersions[i].replaceAll("\\.properties", "")
+    }
+
+    // Sort the version list so the list goes from oldest to newest
+    minecraftVersions.sort()
+
+    def minecraftVersion = minecraft_version_properties
+    def minecraftVersionIndex = minecraftVersions.indexOf(minecraftVersion)
+    def manifoldMinecraftVersionPreprocessorList = new ArrayList<String>()
+
+    for (int i = 0; i < minecraftVersions.size(); i++) {
+        String minecraftVersionManifold = minecraftVersions[i].replace(".", "_").replace("-", "_TO_MC_")
+
+        if (minecraftVersionIndex == i) {
+            manifoldMinecraftVersionPreprocessorList.add("MC_" + minecraftVersionManifold)
+        } else {
+            manifoldMinecraftVersionPreprocessorList.add("# MC_" + minecraftVersionManifold)
+        }
+    }
+
+    StringBuilder sb = new StringBuilder()
+    // Add a warning to the top of the build.properties file
+    // The whitespace at the end is intentional
+    sb.append("""# This file contains the Minecraft version Manifold uses.
+# Please do not touch this file, as this is handled by the build script automatically.
+# If you're updating the mod to a new Minecraft version, add a new version.properties file to the version_properties_folder
+
+# suppress inspection "WrongPropertyKeyValueDelimiter" for whole file
+# suppress inspection "UnusedProperty" for whole file
+
+""")
+
+    // Build the Minecraft version preprocessors list
+    for (String manifoldMinecraftVersionPreprocessor : manifoldMinecraftVersionPreprocessorList) {
+        sb.append(manifoldMinecraftVersionPreprocessor)
+        sb.append("=\n")
+    }
+
+    // Write to build.properties
+    new File(projectDir, "build.properties").text = sb.toString()
+}
+
+loadProperties()
+writeManifoldPreprocessorDefinesToBuildProperties()
+
 repositories {
     // Add repositories to retrieve artifacts from in here.
     // You should only use this when depending on other mods because
@@ -33,9 +130,9 @@ repositories {
 
 dependencies {
     // To change the versions see the gradle.properties file
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    minecraft "com.mojang:minecraft:${gradle.ext.minecraft_version}"
+    mappings "net.fabricmc:yarn:${gradle.ext.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${gradle.ext.loader_version}"
 
     // Manifold
     implementation 'systems.manifold:manifold-rt:2023.1.26'
