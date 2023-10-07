@@ -6,7 +6,6 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -23,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Map;
 
-import static io.github.steveplays28.pathunderfencegates.util.BlockStateUtil.BlockAllowedAboveDirtPathBlock;
+import static io.github.steveplays28.pathunderfencegates.util.BlockStateUtil.isBlockAllowedAboveDirtPathBlock;
 
 @Mixin(value = ShovelItem.class, priority = 2000)
 public class ShovelItemMixin {
@@ -43,7 +42,7 @@ public class ShovelItemMixin {
 			BlockState blockState3 = null;
 			BlockState blockStateBlockUp = world.getBlockState(blockPos.up());
 
-			if (blockState2 != null && BlockAllowedAboveDirtPathBlock(blockStateBlockUp)) {
+			if (blockState2 != null && isBlockAllowedAboveDirtPathBlock(blockStateBlockUp)) {
 				world.playSound(playerEntity, blockPos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0f, 1.0f);
 				blockState3 = blockState2;
 
