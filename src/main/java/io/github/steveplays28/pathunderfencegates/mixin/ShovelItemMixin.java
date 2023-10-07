@@ -31,7 +31,7 @@ public class ShovelItemMixin {
 	protected static Map<Block, BlockState> PATH_STATES;
 
 	@Inject(method = "useOnBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemUsageContext;getWorld()Lnet/minecraft/world/World;"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
-	public void modifyUseOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
+	public void useOnBlockInject(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
 		World world = context.getWorld();
 		BlockPos blockPos = context.getBlockPos();
 		BlockState blockState = world.getBlockState(blockPos);
