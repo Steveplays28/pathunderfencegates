@@ -13,6 +13,6 @@ public class BlockStateUtil {
 
 		return !blockState.isSolid() || blockState.isAir() || blockState.isIn(BlockTags.FENCE_GATES) || blockState.isIn(
 				BlockTags.TRAPDOORS) || block instanceof BellBlock || block instanceof WallSignBlock || block instanceof PaneBlock || (block instanceof SlabBlock && blockState.get(
-				TYPE).equals(SlabType.TOP));
+				TYPE).equals(SlabType.TOP)) || (block instanceof LanternBlock && blockState.get(LanternBlock.HANGING));
 	}
 }
