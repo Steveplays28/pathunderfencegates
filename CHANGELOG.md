@@ -10,3 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Dirt path under lanterns by [ChampionAsh5357](https://github.com/ChampionAsh5357) in [#8](https://github.com/Steveplays28/pathunderfencegates/pull/8)
+
+## `v1.4.1` - 14/10/2023
+
+### Fixed
+
+- Minecraft `1.19.x` compatibility in `fabric.mod.json`
