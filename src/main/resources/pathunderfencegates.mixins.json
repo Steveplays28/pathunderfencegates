@@ -7,8 +7,7 @@
     "ShovelItemMixin",
     "DirtPathBlockMixin"
   ],
-  "client": [
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
