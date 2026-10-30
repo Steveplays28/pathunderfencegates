@@ -5,7 +5,8 @@
   "name": "Path Under Fence Gates",
   "description": "Allows you to make dirt paths under fence gates, and more!",
   "authors": [
-    "Steveplays28"
+    "Steveplays28",
+    "AmyMialee"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/pathunderfencegates",
@@ -32,14 +33,5 @@
   "environment": "*",
   "mixins": [
     "pathunderfencegates.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.14.10",
-    "minecraft": [
-      "1.20.x"
-    ]
-  },
-  "suggests": {
-    "modmenu": "*"
-  }
+  ]
 }

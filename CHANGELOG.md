@@ -20,3 +20,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Minecraft `1.19.x` compatibility in `fabric.mod.json`
+
+## `v1.4.2` - 01/10/2024
+
+### Added
+
+- Dirt path under any non solid bottomed block by [AmyMialee](https://amymialee.xyz/)
+
+### Changed
+
+- Updated to Minecraft 1.21.1
+- Code rewrite
